@@ -2,7 +2,9 @@
   <ul>
   <% model.get('entries').each( function (entry) { %>
     <li>
-      <a href="#/entry/<%= entry.id %>"><%= entry.escape("title") %></a>
+      <a href="#/feeds/<%= model.id %>/entry/<%= entry.id %>">
+        <%= entry.escape("title") %>
+      </a>
     </li>
   <% }); %>
   </ul>
