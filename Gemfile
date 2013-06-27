@@ -9,6 +9,14 @@ gem 'sqlite3'
 gem 'simple-rss'
 require 'open-uri'
 
+
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'underscore-rails'
+gem 'backbone-on-rails'
+gem 'ejs'
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

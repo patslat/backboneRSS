@@ -10,6 +10,19 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//
+//= require underscore
+//= require backbone
+//
+//= require feeds
+//
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./routers
+//= require_tree ./views
+//= require_tree ./templates
+
+
