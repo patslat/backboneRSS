@@ -7,11 +7,11 @@ class FeedsController < ApplicationController
   end
 
   def create
-    feed = Feed.getOrCreate(params[:feed][:url])
+    feed = Feed.find_or_create_by_url(params[:feed][:url])
     if feed
       render :json => feed
     else
-      render :json => { error: "invalid url" }, status: 400
+      render :json => { error: "invalid url" }, status: :unprocessable_entity
     end
   end
 end

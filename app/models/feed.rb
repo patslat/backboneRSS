@@ -3,9 +3,9 @@ class Feed < ActiveRecord::Base
 
   has_many :entries, :dependent => :destroy
 
-  def self.getOrCreate(url)
+  def self.find_or_create_by_url(url)
     feed = Feed.find_by_url(url)
-    if !feed
+    unless feed
       begin
         feedData = SimpleRSS.parse(open(url))
         feed = Feed.create!(title: feedData.title, url: url)
@@ -22,16 +22,16 @@ class Feed < ActiveRecord::Base
   def reload
     # should reload entries
     begin
-      feedData = SimpleRSS.parse(self.url)
+      feedData = SimpleRSS.parse(url)
       self.title = feedData.title
-      self.save!
+      save!
       feedData.entries.each do |entryData|
-        if !Entry.find_by_guid(entryData.guid)
+        unless Entry.find_by_guid(entryData.guid)
           Entry.create_from_json!(entryData, feed)
         end
       end
     rescue SimpleRSSError
-      return
+      return false
     end
   end
 end
