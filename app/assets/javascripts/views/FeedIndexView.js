@@ -7,6 +7,8 @@ App.Views.FeedIndexView = Backbone.View.extend({
     this.listenTo(this.collection, "remove", this.render);
   },
 
+  events: { "click #new-feed-button": "create"},
+
   render: function() {
     var content = this.template({
       collection: this.collection
@@ -15,6 +17,12 @@ App.Views.FeedIndexView = Backbone.View.extend({
     this.$el.html(content);
 
     return this;
+  },
+
+  create: function () {
+    var url = $("#new-feed-url").val()
+
+    this.collection.create({ url: url })
   }
 
 });

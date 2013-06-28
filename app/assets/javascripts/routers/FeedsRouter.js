@@ -12,11 +12,7 @@ App.Routers.FeedsRouter = Backbone.Router.extend({
   },
 
   index: function () {
-    var view = new App.Views.FeedIndexView({
-      collection: this.feeds
-    });
-
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.empty();
   },
 
   show: function (id) {

@@ -17,6 +17,12 @@ class FeedsController < ApplicationController
     end
   end
 
+  def destroy
+    @feed = Feed.find(params[:id])
+    @feed.delete
+    render :json => nil
+  end
+
   def reload
     feed = Feed.find(params[:id]).reload
     render :json => feed.to_json(:include => :entries)

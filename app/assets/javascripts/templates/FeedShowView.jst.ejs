@@ -1,11 +1,14 @@
+<a href="#/" style="float: right;">Close</a>
+
 <h1><a href="#/feeds/<%= model.id %>/reload" ><%= model.escape("title") %></h1>
-  <ul>
-  <% model.get('entries').each( function (entry) { %>
-    <li>
-      <a href="#/feeds/<%= model.id %>/entry/<%= entry.id %>">
-        <%= entry.escape("title") %>
-      </a>
-    </li>
-  <% }); %>
-  </ul>
-<a href="#/">Back</a>
+
+<button id="destroy-this-feed">Remove This Feed</button>
+<ul>
+<% model.get('entries').each( function (entry) { %>
+  <li>
+    <a href="#/feeds/<%= model.id %>/entry/<%= entry.id %>">
+      <%= entry.escape("title") %>
+    </a>
+  </li>
+<% }); %>
+</ul>

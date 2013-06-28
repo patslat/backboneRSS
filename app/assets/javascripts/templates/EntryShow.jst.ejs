@@ -1,3 +1,4 @@
 <h1><%= model.escape("title") %></h1>
-<div id="#content"></div>
-<a href="#/feeds/<%= model.escape('feed_id') %>">Back</a>
+<a href="#/feeds/<%= model.escape('feed_id') %>"
+   style="float: right;">Back</a>
+<a href="<%= model.escape('guid') %>">Visit this entry</a>

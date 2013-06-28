@@ -3,4 +3,10 @@
 <% collection.each(function (feed) { %>
   <li><a href="#/feeds/<%= feed.id %>"><%= feed.escape("title") %></a></li>
 <% }) %>
-</li>
+</ul>
+
+<label for="new-feed-url">New Feed URL:</label>
+<br>
+<input type="text" id="new-feed-url">
+<br>
+<button id="new-feed-button">Add</button>

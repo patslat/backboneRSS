@@ -1,5 +1,5 @@
 NewReader::Application.routes.draw do
-  resources :feeds, only: [:index, :create] do
+  resources :feeds, only: [:index, :create, :destroy] do
     resources :entries, only: [:index]
   end
   get "/feeds/:id/reload" => 'feeds#reload'
